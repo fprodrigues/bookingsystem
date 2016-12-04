@@ -1,0 +1,33 @@
+<%= javascript_tag do %>
+     	var reservas1 = "<%= Setting.pessoa %>";
+	var numbers1 = <%= raw Setting.range.as_json %>;
+<% end %>
+
+<div class="container">
+<%= form_for(@calendar) do |f| %>
+
+<div class="field">
+    <span>Nome</span><br>
+    <%= f.text_field :title %>
+  </div>
+
+<br> 
+<div class="field">
+<span>dia</span><br>
+<%= f.text_field :funcao, "data-provide"=>"datepicker", "data-date-format" =>'yyyy-mm-dd', :include_blank => true %>
+</div>
+<br>
+<div class="field">
+<span>horas disponiveis</span>
+<%= f.select :nome,  options_for_select([]) %>
+</div>
+
+
+<div class="btn btn-success-outline" id="meio">
+    <%= f.submit %>
+  </div>
+
+
+
+<% end %>
+</div>
